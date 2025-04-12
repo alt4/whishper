@@ -1,4 +1,4 @@
-FROM golang:alpine as builder
+FROM golang:alpine AS builder
 
 ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /app
@@ -10,7 +10,7 @@ RUN go mod tidy && apk add upx && \
     chmod a+rx anysub
 
 # Certificates and timezone data stage
-FROM alpine:3.19 as certs
+FROM alpine:3.19 AS certs
 RUN apk update && apk add --no-cache ca-certificates tzdata
 
 # Start from a complete image and include timezone data
