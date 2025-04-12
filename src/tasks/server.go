@@ -13,7 +13,12 @@ var whisperApiHost = utils.Getenv("AS_WX_API_HOST", "http://127.0.0.1:8000")
 
 func StartTaskServer(wah string) {
 	srv := asynq.NewServer(
-		asynq.RedisClientOpt{Addr: utils.Getenv("REDIS_HOST", "127.0.0.1:6379")},
+		asynq.RedisClientOpt{
+			Addr: utils.Getenv("REDIS_HOST", "127.0.0.1:6379"),
+			Username: utils.Getenv("REDIS_USERNAME", ""),
+			Password: utils.Getenv("REDIS_PASSWORD", ""),
+			DB: utils.Getenv("REDIS_DB", 0),
+		},
 		asynq.Config{
 			Concurrency: 1,
 			Queues: map[string]int{
