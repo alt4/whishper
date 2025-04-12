@@ -1,10 +1,12 @@
 module github.com/pluja/anysub
 
-go 1.22.3
+go 1.23.0
+
+toolchain go1.24.2
 
 require (
 	entgo.io/ent v0.13.1
-	github.com/a-h/templ v0.2.707
+	github.com/a-h/templ v0.3.857
 	github.com/duke-git/lancet/v2 v2.3.1
 	github.com/dustin/go-humanize v1.0.1
 	github.com/go-resty/resty/v2 v2.13.1
@@ -13,9 +15,10 @@ require (
 	github.com/hibiken/asynq v0.24.1
 	github.com/joho/godotenv v1.5.1
 	github.com/kataras/iris/v12 v12.2.11
+	github.com/lib/pq v1.10.9
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.33.0
-	golang.org/x/crypto v0.24.0
+	golang.org/x/crypto v0.36.0
 )
 
 require (
@@ -70,13 +73,13 @@ require (
 	github.com/yosssi/ace v0.0.5 // indirect
 	github.com/zclconf/go-cty v1.14.4 // indirect
 	golang.org/x/exp v0.0.0-20240529005216-23cca8864a10 // indirect
-	golang.org/x/mod v0.17.0 // indirect
-	golang.org/x/net v0.25.0 // indirect
-	golang.org/x/sync v0.7.0 // indirect
-	golang.org/x/sys v0.21.0 // indirect
-	golang.org/x/text v0.16.0 // indirect
+	golang.org/x/mod v0.20.0 // indirect
+	golang.org/x/net v0.37.0 // indirect
+	golang.org/x/sync v0.12.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
-	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d // indirect
+	golang.org/x/tools v0.24.0 // indirect
 	google.golang.org/protobuf v1.34.1 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
