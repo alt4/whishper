@@ -22,6 +22,7 @@ COPY --from=certs /usr/share/zoneinfo /usr/share/zoneinfo
 
 WORKDIR /app
 COPY --from=builder /app/anysub /app/anysub
+COPY frontend/static /app/frontend/static
 
 # Ensure the app uses the right timezone by setting the TZ environment variable
 ENV TZ="Europe/Warsaw"
