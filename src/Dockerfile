@@ -4,7 +4,9 @@ ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /app
 
 COPY . .
-RUN go mod tidy && apk add upx && \
+RUN apk add upx git && go install github.com/a-h/templ/cmd/templ@latest && \
+    templ generate ./... && \
+    go mod tidy && \
     GOOS=linux go build -o anysub . && \
     upx anysub && \
     chmod a+rx anysub

@@ -1,10 +1,11 @@
 FROM golang:alpine AS builder
 
-ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /app
 
 COPY . .
-RUN apk add upx git && go mod tidy && \
+RUN apk add upx git && go install github.com/a-h/templ/cmd/templ@latest && \
+    templ generate ./... && \
+    go mod tidy && \
     GOOS=linux go build -o anysub . && \
     upx anysub && \
     chmod a+rx anysub
