@@ -34,6 +34,18 @@ func Getenv(key, def string) string {
 	return def
 }
 
+func GetenvInt(key string, def int) int {
+	val := Getenv(key, "")
+	if val == "" {
+		return def
+	}
+	// TODO: handle errors properly
+	if i, err := strconv.Atoi(val); err == nil {
+		return i
+	}
+	return def
+}
+
 // Returns true if the string contains a Unicode punctuation character
 // Returns true if the string contains a Unicode punctuation character that implies a long pause or a logical new line in subtitles
 func ContainsPunctuation(s string) bool {

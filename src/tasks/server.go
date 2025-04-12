@@ -17,7 +17,7 @@ func StartTaskServer(wah string) {
 			Addr: utils.Getenv("REDIS_HOST", "127.0.0.1:6379"),
 			Username: utils.Getenv("REDIS_USERNAME", ""),
 			Password: utils.Getenv("REDIS_PASSWORD", ""),
-			DB: utils.Getenv("REDIS_DB", 0),
+			DB: utils.GetenvInt("REDIS_DB", 0),
 		},
 		asynq.Config{
 			Concurrency: 1,
