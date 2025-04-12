@@ -28,7 +28,12 @@ func NewServer(listenAddr string) *Server {
 		ListenAddr: listenAddr,
 		Router:     app,
 		HttpClient: &http.Client{},
-		TaskClient: asynq.NewClient(asynq.RedisClientOpt{Addr: "127.0.0.1:6379"}),
+		TaskClient: asynq.NewClient(asynq.RedisClientOpt{
+			Addr: utils.Getenv("REDIS_HOST", "127.0.0.1:6379"),
+			Username: utils.Getenv("REDIS_USERNAME", ""),
+			Password: utils.Getenv("REDIS_PASSWORD", ""),
+			DB: utils.GetenvInt("REDIS_DB", 0),
+		}),
 	}
 }
 

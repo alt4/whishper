@@ -1,6 +1,5 @@
 FROM golang:alpine AS builder
 
-ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /app
 
 COPY . .
